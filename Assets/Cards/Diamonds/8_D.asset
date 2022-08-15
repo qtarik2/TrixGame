@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
-  m_Name: King
+  m_Name: 8_D
   m_EditorClassIdentifier: 
-  cardName: King
-  cardType: Hearts
-  cardWeight: 20
-  cardImage: {fileID: 21300000, guid: 9cb82cbd61fe6b84a86eca97a7239832, type: 3}
+  cardName: 
+  cardType: 
+  cardWeight: 0
+  cardImage: {fileID: 0}
