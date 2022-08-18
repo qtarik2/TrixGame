@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: 7_S
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 
-  cardWeight: 0
-  cardImage: {fileID: 0}
+  cardID: 8
+  cardName: 7
+  cardType: Spades
+  cardWeight: 7
+  cardImage: {fileID: 21300000, guid: bd31440cf21486d4d89f85bebae20812, type: 3}

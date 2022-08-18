@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: 4_C
   m_EditorClassIdentifier: 
+  cardID: 11
   cardName: 4
-  cardType: 
+  cardType: Clubs
   cardWeight: 4
   cardImage: {fileID: 21300000, guid: 8c08c023e73ed484abc7bd37d64a9345, type: 3}

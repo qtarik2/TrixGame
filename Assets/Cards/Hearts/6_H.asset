@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: 6_H
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 
-  cardWeight: 0
-  cardImage: {fileID: 0}
+  cardID: 9
+  cardName: 6
+  cardType: Hearts
+  cardWeight: 6
+  cardImage: {fileID: 21300000, guid: 467907bd3265d994d8ec0a2d8f6e4fe7, type: 3}

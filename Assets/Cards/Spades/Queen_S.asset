@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: Queen_S
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 
-  cardWeight: 0
-  cardImage: {fileID: 0}
+  cardID: 3
+  cardName: Queen
+  cardType: Spades
+  cardWeight: 12
+  cardImage: {fileID: 21300000, guid: 33374143d7bd8734eb427bf60caf3a65, type: 3}

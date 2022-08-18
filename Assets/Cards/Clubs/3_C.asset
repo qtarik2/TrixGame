@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: 3_C
   m_EditorClassIdentifier: 
+  cardID: 12
   cardName: 3
   cardType: Clubs
   cardWeight: 3

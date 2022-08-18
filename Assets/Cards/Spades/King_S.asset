@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aef2cb0a4e9a141bcf61ef82409877, type: 3}
   m_Name: King_S
   m_EditorClassIdentifier: 
+  cardID: 2
   cardName: King
   cardType: Spades
-  cardWeight: 20
+  cardWeight: 13
   cardImage: {fileID: 21300000, guid: c494246ca6026c64cbca747ec017b3f5, type: 3}

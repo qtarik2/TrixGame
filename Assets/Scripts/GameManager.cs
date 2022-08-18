@@ -9,23 +9,19 @@ public class GameManager : MonoBehaviour
   WrongMoveList wrongMoveList;
 
   // Card in hards
-  public int aPlayerTotalCard = 5;
-  public List<Card> aPlayerCardsInHands = new();
+  public int numOfCards = 11;
   public List<GameObject> cardObj;
-
-  public int bPlayerCardsTotalCard = 5;
-  public int cPlayerCardsTotalCard = 5;
-  public int dPlayerCardsTotalCard = 5;
-
-  ArrayList cardNames = new();
-  public Dictionary<string, int> dublicateCards = new();
+  public List<Card> aPlayerCardsInHands = new();
+  public List<Card> bPlayerCardsInHands = new();
+  public List<Card> cPlayerCardsInHands = new();
+  public List<Card> dPlayerCardsInHands = new();
 
   public Button slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11;
 
   public List<Card> cardInTable = new();
   int total = 0;
-  public int multiplier = 1;
   public bool isWrongMove = false;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -46,19 +42,24 @@ public class GameManager : MonoBehaviour
     commonFunctions = GetComponent<CommonFunctions>();
     wrongMoveList = GetComponent<WrongMoveList>();
     cardList = GetComponent<CardList>();
-    DisplayCards();
+
+    StartCoroutine(DisplayCards());
   }
 
-  public void DisplayCards()
+  public IEnumerator DisplayCards()
   {
-    // Distance from each cards -54
-    for (int i = 0; i < aPlayerTotalCard; i++)
+    yield return new WaitForSeconds(0.5f);
+    if (cardList.AllShuffledCard != null)
     {
-      cardObj[i].SetActive(true);
-      cardObj[i].GetComponent<Image>().sprite = cardList.clubs[i].cardImage;
-      aPlayerCardsInHands.Add(cardList.clubs[i]);
+      aPlayerCardsInHands.AddRange(commonFunctions.GetSliced(cardList.AllShuffledCard, 11, numOfCards));
+      // Distance from each cards -54
+      for (int i = 0; i < 11; i++)
+      {
+        cardObj[i].SetActive(true);
+        cardObj[i].GetComponent<Image>().sprite = aPlayerCardsInHands[i].cardImage;
+      }
+      CheckCards(total);
     }
-    CheckCards(total);
   }
 
   public void DrawCard(int buttonNo)
@@ -85,7 +86,6 @@ public class GameManager : MonoBehaviour
       aPlayerCardsInHands[buttonNo] = null;
       cardInTable.Add(cardList.clubs[buttonNo]);
     }
-
 
     #region Button
     // CardRules.cardRulesInstance.total = 0;
@@ -119,62 +119,6 @@ public class GameManager : MonoBehaviour
 
   public void CheckCards(int total)
   {
-    CardRules.cardRulesInstance.CardStatus(aPlayerCardsInHands, cardInTable, multiplier);
+    CardRules.cardRulesInstance.CardStatus(aPlayerCardsInHands, cardInTable);
   }
-
-
-  // public void CheckCards()
-  // {
-  //   foreach (var card in aPlayerCardsInHands)
-  //   {
-  //     CardRules.cardRulesInstance.CheckOccurence(card.cardWeight);
-  //   }
-  //   CardRules.cardRulesInstance.duplicates();
-  // }
-
-  // public void CheckCards()
-  // {
-  //   var count = 0;
-  //   HashSet<string> hashset = new();
-  //   HashSet<string> dublicate = new();
-
-  //   var val = 0;
-  //   foreach (var card in aPlayerCardsInHands)
-  //   {
-  //     cardNames.Add(card.cardName);
-  //     val += card.cardWeight;
-  //     Debug.Log(val);
-  //   }
-
-  //   foreach (string name in cardNames)
-  //   {
-  //     if (!hashset.Add(name))
-  //     {
-  //       count++;
-  //       if (dublicate.Add(name))
-  //         count++;
-  //       // dublicateCards[name] = count;
-  //       // break;
-  //     }
-  //   }
-
-  //   if (dublicate.Count == 1)
-  //   {
-  //     // Call one pair
-  //     CardRules.cardRulesInstance.OnePair();
-  //   }
-  //   if (dublicate.Count == 2)
-  //   {
-  //     // Call one pair
-  //     CardRules.cardRulesInstance.TwoPair();
-  //   }
-
-  //   foreach (var kvp in dublicate)
-  //   {
-  //     // if (kvp.Value >= 1)
-  //     // {
-  //     Debug.Log(kvp);
-  //     // }
-  //   }
-  // }
 }
